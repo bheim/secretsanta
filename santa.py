@@ -13,7 +13,7 @@ smtp.login('secretsantauchicago@gmail.com', 'cbyp rmzb gdno tomd')
 
 people = [("Ben", "benjaminheim43@gmail.com"), ("Grace", "gvs@uchicago.edu"),
           ("Thomas", "thomasdegirolami@gmail.com"), ("Ingrid", "iappen@uchicago.edu"),
-          ("Corinne", "cdswim@icloud.com")]
+          ("Corinne", "cdswim@icloud.com"), ("Ethan", "ejick@uchicago.edu")]
 chosen = []
 
 for j in range(len(people)):
