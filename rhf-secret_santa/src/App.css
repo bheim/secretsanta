@@ -34,4 +34,10 @@ label {
   .form-control {
     margin-bottom: 20px;
   }
+
+  .error{
+    color: red;
+    font-size: 1;
+    text-align: left;
+  }
   
