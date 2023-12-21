@@ -1,13 +1,23 @@
 import { useForm } from 'react-hook-form';
 import { DevTool } from "@hookform/devtools";
 
+
 type FormValues = {
-    name: string
-    email: string
+    person: {
+        name: string
+        email: string
+    }
 }
 
 export const Form = () => {
-    const form = useForm<FormValues>();
+    const form = useForm<FormValues>({
+        defaultValues: {
+            person: {
+                name: "",
+                email: "",
+            }
+        }
+    });
     const { register, control, handleSubmit, formState } = form;
     const { errors } = formState;
 
@@ -18,14 +28,14 @@ export const Form = () => {
  
     return (
         <div>
-            <h1> Form </h1>
+            <h1> Secret Santa </h1>
             <form onSubmit = {handleSubmit(onSubmit)} noValidate>
                 <div className="form-control">
                     <label htmlFor="name">Name</label>
                     <input 
                         type="text" 
                         id="email" 
-                        {...register("name", { 
+                        {...register("person.name", { 
                             required: {
                                 value: true,
                                 message: "name is required"
@@ -33,12 +43,12 @@ export const Form = () => {
                         })}
                     />
 
-                    <p className="error">{ errors.name?.message }</p>
+                    <p className="error">{ errors.person?.message }</p>
                 </div>
 
                 <div className="form-control">
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" {...register("email", {
+                <input type="email" id="email" {...register("person.email", {
                     required: {
                         value: true,
                         message: "email is required"
@@ -50,10 +60,8 @@ export const Form = () => {
                     }
                 })}
             />
-            <p className="error">{ errors.email?.message }</p>
+            <p className="error">{ errors.person?.message }</p>
             </div>
-
-
                 <button>Submit</button>
             </form>
             <DevTool control = { control } />
